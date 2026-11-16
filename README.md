@@ -7,8 +7,9 @@ Entregáveis da disciplina de **Arquitetura de Software** do projeto **Oxygeni H
 | Pasta | Conteúdo |
 |---|---|
 | [`atividade-01`](atividade-01/) | Diagrama de Componentes UML — iFood (fluxo de pedido, SPOF, reflexão). |
+| [`atividade-02`](atividade-02/) | Estilos Arquiteturais — estudo de caso (E-commerce, App Bancário, Jogo Multiplayer). |
 
 ## Tecnologias
 
-- **UML** — diagramas de componentes
-- **SVG** — exportação do diagrama
+- **UML** — diagramas de componentes e blocos
+- **SVG** — exportação de diagramas

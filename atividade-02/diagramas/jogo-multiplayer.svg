@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="780" viewBox="0 0 1100 780">
+  <style>
+    text { font-family: 'Segoe UI', Arial, sans-serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+    .subtitle { font-size: 11px; fill: #666; }
+    .comp-name { font-size: 13px; font-weight: 600; fill: #fff; text-anchor: middle; }
+    .comp-role { font-size: 10px; fill: rgba(255,255,255,0.85); text-anchor: middle; }
+    .label { font-size: 10px; fill: #555; text-anchor: middle; }
+    .label-bg { fill: #fff; stroke: none; }
+    .zone-label { font-size: 12px; font-weight: 600; fill: #888; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+    .arrow-ws { stroke: #e67e22; stroke-width: 1.8; fill: none; marker-end: url(#ah-ws); }
+    .arrow-dash { stroke: #999; stroke-width: 1.2; fill: none; stroke-dasharray: 6 3; marker-end: url(#ah-l); }
+    .arrow-bi { stroke: #e67e22; stroke-width: 1.8; fill: none; marker-start: url(#ah-ws-rev); marker-end: url(#ah-ws); }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#666" stroke-width="1.2" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ah-ws" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#e67e22" stroke-width="1.2" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ah-ws-rev" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6" fill="none" stroke="#e67e22" stroke-width="1.2" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ah-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1" stroke-linejoin="round"/>
+    </marker>
+    <symbol id="ci" viewBox="0 0 20 16">
+      <rect x="4" y="0" width="16" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+      <rect x="0" y="3" width="8" height="4" rx="1" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+      <rect x="0" y="9" width="8" height="4" rx="1" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+
+  <rect width="1100" height="780" fill="#fafafa" rx="8"/>
+
+  <text x="550" y="35" text-anchor="middle" class="title">Jogo Multiplayer — Diagrama de Blocos (C4 Nível 2)</text>
+  <text x="550" y="52" text-anchor="middle" class="subtitle">Estilo: Cliente-Servidor com WebSockets + Arquitetura Orientada a Eventos</text>
+
+  <!-- ZONE: Clients -->
+  <rect x="30" y="70" width="1040" height="110" rx="10" fill="#f0f4ff" stroke="#c5d4f0" stroke-width="1"/>
+  <text x="50" y="90" class="zone-label">Clientes (dispositivos dos jogadores)</text>
+
+  <rect x="80" y="105" width="170" height="55" rx="8" fill="#3498db"/>
+  <use href="#ci" x="88" y="111" width="14" height="11"/>
+  <text x="165" y="128" class="comp-name">Cliente Desktop</text>
+  <text x="165" y="143" class="comp-role">PC / Steam / Console</text>
+
+  <rect x="310" y="105" width="170" height="55" rx="8" fill="#3498db"/>
+  <use href="#ci" x="318" y="111" width="14" height="11"/>
+  <text x="395" y="128" class="comp-name">Cliente Mobile</text>
+  <text x="395" y="143" class="comp-role">iOS / Android</text>
+
+  <rect x="540" y="105" width="170" height="55" rx="8" fill="#3498db"/>
+  <use href="#ci" x="548" y="111" width="14" height="11"/>
+  <text x="625" y="128" class="comp-name">Cliente Web</text>
+  <text x="625" y="143" class="comp-role">Navegador (WebGL)</text>
+
+  <rect x="810" y="105" width="200" height="55" rx="8" fill="#7f8c8d"/>
+  <use href="#ci" x="818" y="111" width="14" height="11"/>
+  <text x="910" y="128" class="comp-name">Lobby / Matchmaking</text>
+  <text x="910" y="143" class="comp-role">UI de salas e ranking</text>
+
+  <!-- ZONE: Game Server -->
+  <rect x="30" y="200" width="1040" height="140" rx="10" fill="#fff8f0" stroke="#f0dcc5" stroke-width="1"/>
+  <text x="50" y="220" class="zone-label">Servidores de Jogo (camada de tempo real)</text>
+
+  <rect x="80" y="240" width="200" height="55" rx="8" fill="#e67e22"/>
+  <use href="#ci" x="88" y="246" width="14" height="11"/>
+  <text x="180" y="263" class="comp-name">Game Server (Sala 1)</text>
+  <text x="180" y="278" class="comp-role">Tick rate 60Hz, game loop</text>
+
+  <rect x="340" y="240" width="200" height="55" rx="8" fill="#e67e22"/>
+  <use href="#ci" x="348" y="246" width="14" height="11"/>
+  <text x="440" y="263" class="comp-name">Game Server (Sala 2)</text>
+  <text x="440" y="278" class="comp-role">Tick rate 60Hz, game loop</text>
+
+  <rect x="600" y="240" width="200" height="55" rx="8" fill="#e67e22"/>
+  <use href="#ci" x="608" y="246" width="14" height="11"/>
+  <text x="700" y="263" class="comp-name">Game Server (Sala N)</text>
+  <text x="700" y="278" class="comp-role">Escala horizontal por sala</text>
+
+  <rect x="860" y="240" width="170" height="55" rx="8" fill="#e67e22"/>
+  <use href="#ci" x="868" y="246" width="14" height="11"/>
+  <text x="945" y="263" class="comp-name">Matchmaking</text>
+  <text x="945" y="278" class="comp-role">Ranking, MMR, fila</text>
+
+  <!-- ZONE: Backend Services -->
+  <rect x="30" y="360" width="1040" height="140" rx="10" fill="#f0fff4" stroke="#c5f0d4" stroke-width="1"/>
+  <text x="50" y="380" class="zone-label">Serviços de Backend (lógica de negócio)</text>
+
+  <rect x="80" y="400" width="170" height="55" rx="8" fill="#2ecc71"/>
+  <use href="#ci" x="88" y="406" width="14" height="11"/>
+  <text x="165" y="423" class="comp-name">Autenticação</text>
+  <text x="165" y="438" class="comp-role">Login, JWT, anti-cheat</text>
+
+  <rect x="310" y="400" width="170" height="55" rx="8" fill="#2ecc71"/>
+  <use href="#ci" x="318" y="406" width="14" height="11"/>
+  <text x="395" y="423" class="comp-name">Perfil / Inventário</text>
+  <text x="395" y="438" class="comp-role">Skins, itens, moedas</text>
+
+  <rect x="540" y="400" width="170" height="55" rx="8" fill="#2ecc71"/>
+  <use href="#ci" x="548" y="406" width="14" height="11"/>
+  <text x="625" y="423" class="comp-name">Ranking / Leaderboard</text>
+  <text x="625" y="438" class="comp-role">Placar global, temporadas</text>
+
+  <rect x="770" y="400" width="170" height="55" rx="8" fill="#9b59b6"/>
+  <use href="#ci" x="778" y="406" width="14" height="11"/>
+  <text x="855" y="423" class="comp-name">Event Bus</text>
+  <text x="855" y="438" class="comp-role">Kafka / Redis Pub-Sub</text>
+
+  <!-- ZONE: Data -->
+  <rect x="30" y="520" width="1040" height="110" rx="10" fill="#fff0f0" stroke="#f0c5c5" stroke-width="1"/>
+  <text x="50" y="540" class="zone-label">Camada de Dados</text>
+
+  <rect x="80" y="555" width="170" height="55" rx="8" fill="#e74c3c"/>
+  <use href="#ci" x="88" y="561" width="14" height="11"/>
+  <text x="165" y="578" class="comp-name">BD Relacional</text>
+  <text x="165" y="593" class="comp-role">PostgreSQL (contas, loja)</text>
+
+  <rect x="310" y="555" width="170" height="55" rx="8" fill="#e74c3c"/>
+  <use href="#ci" x="318" y="561" width="14" height="11"/>
+  <text x="395" y="578" class="comp-name">Cache</text>
+  <text x="395" y="593" class="comp-role">Redis (sessão, ranking)</text>
+
+  <rect x="540" y="555" width="170" height="55" rx="8" fill="#e74c3c"/>
+  <use href="#ci" x="548" y="561" width="14" height="11"/>
+  <text x="625" y="578" class="comp-name">Estado de Jogo</text>
+  <text x="625" y="593" class="comp-role">Redis / in-memory (tick)</text>
+
+  <rect x="770" y="555" width="170" height="55" rx="8" fill="#e74c3c"/>
+  <use href="#ci" x="778" y="561" width="14" height="11"/>
+  <text x="855" y="578" class="comp-name">Object Storage</text>
+  <text x="855" y="593" class="comp-role">Assets, replays, logs</text>
+
+  <!-- ARROWS -->
+  <!-- Clients → Game Servers (WebSocket bidirectional) -->
+  <line x1="165" y1="160" x2="180" y2="240" class="arrow-bi"/>
+  <line x1="395" y1="160" x2="340" y2="240" class="arrow-bi"/>
+  <line x1="625" y1="160" x2="600" y2="240" class="arrow-bi"/>
+
+  <rect x="58" y="192" width="75" height="14" rx="3" class="label-bg"/>
+  <text x="96" y="202" class="label">WebSocket</text>
+  <rect x="310" y="192" width="75" height="14" rx="3" class="label-bg"/>
+  <text x="348" y="202" class="label">WebSocket</text>
+  <rect x="560" y="192" width="75" height="14" rx="3" class="label-bg"/>
+  <text x="598" y="202" class="label">WebSocket</text>
+
+  <!-- Lobby → Matchmaking -->
+  <line x1="910" y1="160" x2="945" y2="240" class="arrow"/>
+  <rect x="905" y="192" width="65" height="14" rx="3" class="label-bg"/>
+  <text x="938" y="202" class="label">REST API</text>
+
+  <!-- Game Servers → Event Bus -->
+  <line x1="280" y1="280" x2="810" y2="427" class="arrow-dash"/>
+  <line x1="540" y1="280" x2="810" y2="427" class="arrow-dash"/>
+  <rect x="520" y="345" width="55" height="14" rx="3" class="label-bg"/>
+  <text x="548" y="355" class="label">eventos</text>
+
+  <!-- Matchmaking → Event Bus -->
+  <line x1="945" y1="295" x2="895" y2="400" class="arrow-dash"/>
+
+  <!-- Event Bus → Services -->
+  <line x1="810" y1="427" x2="250" y2="427" class="arrow-dash"/>
+  <line x1="810" y1="427" x2="480" y2="427" class="arrow-dash"/>
+  <line x1="810" y1="427" x2="710" y2="427" class="arrow-dash"/>
+
+  <!-- Services → Data -->
+  <line x1="165" y1="455" x2="165" y2="555" class="arrow-dash"/>
+  <line x1="395" y1="455" x2="395" y2="555" class="arrow-dash"/>
+  <line x1="625" y1="455" x2="625" y2="555" class="arrow-dash"/>
+
+  <!-- Game Servers → Game State (in-memory) -->
+  <line x1="440" y1="295" x2="625" y2="555" class="arrow-dash"/>
+  <rect x="490" y="430" width="80" height="14" rx="3" class="label-bg"/>
+  <text x="530" y="440" class="label">estado/tick</text>
+
+  <!-- LEGEND -->
+  <rect x="30" y="650" width="1040" height="120" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="675" class="zone-label">Legenda</text>
+
+  <rect x="50" y="693" width="22" height="14" rx="4" fill="#3498db"/>
+  <text x="80" y="704" style="font-size:11px;fill:#333">Cliente</text>
+
+  <rect x="180" y="693" width="22" height="14" rx="4" fill="#e67e22"/>
+  <text x="210" y="704" style="font-size:11px;fill:#333">Servidor de jogo</text>
+
+  <rect x="370" y="693" width="22" height="14" rx="4" fill="#2ecc71"/>
+  <text x="400" y="704" style="font-size:11px;fill:#333">Serviço de backend</text>
+
+  <rect x="580" y="693" width="22" height="14" rx="4" fill="#9b59b6"/>
+  <text x="610" y="704" style="font-size:11px;fill:#333">Event bus</text>
+
+  <rect x="740" y="693" width="22" height="14" rx="4" fill="#e74c3c"/>
+  <text x="770" y="704" style="font-size:11px;fill:#333">Dados / armazenamento</text>
+
+  <line x1="50" y1="733" x2="100" y2="733" class="arrow-bi"/>
+  <text x="110" y="737" style="font-size:11px;fill:#333">WebSocket bidirecional (tempo real, ~16ms/tick)</text>
+
+  <line x1="500" y1="733" x2="550" y2="733" class="arrow-dash"/>
+  <text x="560" y="737" style="font-size:11px;fill:#333">Comunicação assíncrona (eventos / persistência)</text>
+</svg>

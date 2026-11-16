@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estilos Arquiteturais — Apresentação</title>
+<style>
+  @page { size: landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f0f0; }
+  .slide {
+    width: 960px; height: 540px; margin: 20px auto;
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 50px 60px; position: relative; overflow: hidden;
+    page-break-after: always; display: flex; flex-direction: column;
+  }
+  @media print {
+    body { background: #fff; }
+    .slide { margin: 0; border-radius: 0; box-shadow: none; width: 100vw; height: 100vh; }
+  }
+  .slide-num { position: absolute; bottom: 20px; right: 30px; font-size: 12px; color: #bbb; }
+  .accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 6px; }
+  h1 { font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+  h2 { font-size: 26px; font-weight: 600; color: #333; margin-bottom: 16px; }
+  h3 { font-size: 18px; font-weight: 600; color: #555; margin-bottom: 8px; }
+  p, li { font-size: 16px; color: #444; line-height: 1.6; }
+  ul { padding-left: 24px; }
+  li { margin-bottom: 6px; }
+  .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; color: #fff; margin: 3px 4px; }
+  .center { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .two-col { display: flex; gap: 40px; flex: 1; align-items: flex-start; }
+  .col { flex: 1; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: #f5f5f5; padding: 8px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid #ddd; }
+  td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+  .highlight { background: #fff3e0; border-left: 4px solid #e67e22; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+  .verdict { font-size: 22px; font-weight: 700; text-align: center; padding: 16px; border-radius: 10px; color: #fff; margin: 10px 0; }
+  .spacer { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Capa -->
+<div class="slide center">
+  <div class="accent-bar" style="background: linear-gradient(90deg, #3498db, #2ecc71, #e67e22);"></div>
+  <h1 style="font-size: 36px; margin-bottom: 20px;">Estilos Arquiteturais</h1>
+  <p style="font-size: 20px; color: #666; margin-bottom: 30px;">Estudo de caso: E-commerce, App Bancário e Jogo Multiplayer</p>
+  <p style="font-size: 16px; color: #999;">Arquitetura de Software — Oxygeni Hub</p>
+  <p style="font-size: 14px; color: #bbb; margin-top: 10px;">Matheus Vitor</p>
+  <span class="slide-num">1</span>
+</div>
+
+<!-- SLIDE 2: Os 3 sistemas -->
+<div class="slide">
+  <div class="accent-bar" style="background: #3498db;"></div>
+  <h2>Os 3 sistemas</h2>
+  <div class="two-col" style="margin-top: 10px;">
+    <div class="col">
+      <h3 style="color: #3498db;">E-commerce</h3>
+      <p>Loja online com milhares de produtos, picos extremos de tráfego (Black Friday) e múltiplas equipes.</p>
+      <div style="margin-top: 8px;">
+        <span class="tag" style="background:#3498db">Escalabilidade</span>
+        <span class="tag" style="background:#3498db">Tolerância a falhas</span>
+        <span class="tag" style="background:#3498db">Deploy independente</span>
+      </div>
+    </div>
+    <div class="col">
+      <h3 style="color: #2ecc71;">App Bancário</h3>
+      <p>Banco digital com Pix, transferências e investimentos. Lida com dinheiro real e regulação do Banco Central.</p>
+      <div style="margin-top: 8px;">
+        <span class="tag" style="background:#2ecc71">Segurança</span>
+        <span class="tag" style="background:#2ecc71">ACID</span>
+        <span class="tag" style="background:#2ecc71">Auditoria</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 16px;">
+    <h3 style="color: #e67e22;">Jogo Multiplayer</h3>
+    <p>Battle royale com 100 jogadores por partida, estado sincronizado 60x por segundo.</p>
+    <div style="margin-top: 8px;">
+      <span class="tag" style="background:#e67e22">Latência &lt;50ms</span>
+      <span class="tag" style="background:#e67e22">Tempo real</span>
+      <span class="tag" style="background:#e67e22">Sincronização</span>
+    </div>
+  </div>
+  <span class="slide-num">2</span>
+</div>
+
+<!-- SLIDE 3: E-commerce → Microsserviços -->
+<div class="slide">
+  <div class="accent-bar" style="background: #3498db;"></div>
+  <h2>E-commerce</h2>
+  <div class="verdict" style="background: #3498db;">Microsserviços</div>
+  <div class="two-col">
+    <div class="col">
+      <h3>Por que sim</h3>
+      <ul>
+        <li><strong>Escala independente:</strong> catálogo escala 50x, devolução escala 2x</li>
+        <li><strong>Tolerância a falhas:</strong> recomendação cai, checkout continua</li>
+        <li><strong>Deploy isolado:</strong> equipes fazem deploy sem bloquear umas às outras</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Trade-off</h3>
+      <ul>
+        <li>Complexidade operacional alta</li>
+        <li>Precisa de Kubernetes, API Gateway, monitoramento distribuído</li>
+        <li>Consistência eventual (aceitável para catálogo)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight">
+    <strong>Negócio:</strong> e-commerce fora do ar na Black Friday = milhões em prejuízo. Microsserviços isolam falhas.
+  </div>
+  <span class="slide-num">3</span>
+</div>
+
+<!-- SLIDE 4: App Bancário → Monolito Modular -->
+<div class="slide">
+  <div class="accent-bar" style="background: #2ecc71;"></div>
+  <h2>App Bancário</h2>
+  <div class="verdict" style="background: #2ecc71;">Monolito Modular</div>
+  <div class="two-col">
+    <div class="col">
+      <h3>Por que sim</h3>
+      <ul>
+        <li><strong>ACID nativo:</strong> BEGIN → DEBIT → CREDIT → COMMIT no mesmo processo</li>
+        <li><strong>Segurança:</strong> um deploy, uma porta, um perímetro</li>
+        <li><strong>Auditoria:</strong> logs centralizados, rastreabilidade total</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Trade-off</h3>
+      <ul>
+        <li>Escala horizontal limitada (escala vertical)</li>
+        <li>Deploy é tudo-ou-nada</li>
+        <li>Risco de acoplamento se os módulos não forem bem definidos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight">
+    <strong>Negócio:</strong> inconsistência de saldo = processo judicial + multa. Simplicidade operacional reduz risco.
+  </div>
+  <span class="slide-num">4</span>
+</div>
+
+<!-- SLIDE 5: Jogo Multiplayer → Cliente-Servidor + Eventos -->
+<div class="slide">
+  <div class="accent-bar" style="background: #e67e22;"></div>
+  <h2>Jogo Multiplayer</h2>
+  <div class="verdict" style="background: #e67e22;">Cliente-Servidor (WebSocket) + Eventos</div>
+  <div class="two-col">
+    <div class="col">
+      <h3>Por que sim</h3>
+      <ul>
+        <li><strong>Latência mínima:</strong> WebSocket persistente, sem overhead HTTP</li>
+        <li><strong>Servidor autoritativo:</strong> previne trapaça, estado verdadeiro no server</li>
+        <li><strong>Escala por sala:</strong> cada partida = 1 game server dedicado</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Trade-off</h3>
+      <ul>
+        <li>Game server stateful (se cair, partida é perdida)</li>
+        <li>Complexidade de sincronização de estado</li>
+        <li>Backend assíncrono via eventos (ranking, perfil)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight">
+    <strong>Negócio:</strong> lag = frustração = desinstalação. Latência baixa retém jogadores e gera receita (skins, battle pass).
+  </div>
+  <span class="slide-num">5</span>
+</div>
+
+<!-- SLIDE 6: Comparativo -->
+<div class="slide">
+  <div class="accent-bar" style="background: linear-gradient(90deg, #3498db, #2ecc71, #e67e22);"></div>
+  <h2>Comparativo</h2>
+  <table style="margin-top: 10px;">
+    <tr>
+      <th></th>
+      <th style="color:#3498db">E-commerce</th>
+      <th style="color:#2ecc71">App Bancário</th>
+      <th style="color:#e67e22">Jogo Multiplayer</th>
+    </tr>
+    <tr><td><strong>Estilo</strong></td><td>Microsserviços</td><td>Monolito Modular</td><td>Cliente-Servidor + Eventos</td></tr>
+    <tr><td><strong>Prioridade #1</strong></td><td>Escalabilidade</td><td>Consistência (ACID)</td><td>Latência (&lt;50ms)</td></tr>
+    <tr><td><strong>Comunicação</strong></td><td>REST + Filas</td><td>Chamadas internas</td><td>WebSocket 60Hz</td></tr>
+    <tr><td><strong>Escala</strong></td><td>Horizontal por serviço</td><td>Vertical + réplicas</td><td>Horizontal por sala</td></tr>
+    <tr><td><strong>Consistência</strong></td><td>Eventual</td><td>Forte (ACID)</td><td>Autoritativa (server)</td></tr>
+    <tr><td><strong>Maior risco</strong></td><td>Complexidade ops</td><td>Gargalo vertical</td><td>Perda de estado (crash)</td></tr>
+  </table>
+  <div class="highlight" style="margin-top: 16px;">
+    <strong>Conclusão:</strong> cada sistema exige um estilo diferente. Microsserviços para escala, monolito para consistência, WebSocket para tempo real.
+  </div>
+  <span class="slide-num">6</span>
+</div>
+
+<!-- SLIDE 7: Não existe bala de prata -->
+<div class="slide">
+  <div class="accent-bar" style="background: #555;"></div>
+  <h2>Reflexão: por que não existe "bala de prata"?</h2>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+    <ul style="font-size: 17px; line-height: 1.8;">
+      <li><strong>Todo estilo tem trade-off.</strong> Microsserviços escalam, mas complicam. Monolito simplifica, mas não escala infinitamente.</li>
+      <li><strong>O contexto de negócio muda tudo:</strong>
+        <ul style="margin-top: 4px;">
+          <li><strong>Orçamento:</strong> startup com 3 devs ≠ empresa com 200 engenheiros</li>
+          <li><strong>Time-to-market:</strong> monolito vai ao ar mais rápido, microsserviços evoluem melhor</li>
+          <li><strong>Equipe:</strong> a arquitetura reflete a estrutura do time (Lei de Conway)</li>
+        </ul>
+      </li>
+      <li><strong>A pior decisão:</strong> escolher por hype ("todo mundo usa microsserviços") em vez de evidência ("meu sistema precisa disso?")</li>
+    </ul>
+  </div>
+  <div class="highlight">
+    A melhor arquitetura resolve o problema <strong>de agora</strong> com o menor custo de complexidade, deixando a porta aberta para evoluir.
+  </div>
+  <span class="slide-num">7</span>
+</div>
+
+</body>
+</html>
