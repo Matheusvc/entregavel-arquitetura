@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <style>
+    text { font-family: 'Segoe UI', Arial, sans-serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+    .subtitle { font-size: 11px; fill: #666; }
+    .comp-name { font-size: 13px; font-weight: 600; fill: #fff; text-anchor: middle; }
+    .comp-role { font-size: 10px; fill: rgba(255,255,255,0.85); text-anchor: middle; }
+    .label { font-size: 10px; fill: #555; text-anchor: middle; }
+    .label-bg { fill: #fff; stroke: none; }
+    .zone-label { font-size: 12px; font-weight: 600; fill: #888; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-dashed { stroke: #999; stroke-width: 1.2; fill: none; stroke-dasharray: 6 3; marker-end: url(#arrowhead-light); }
+    .spof-ring { fill: none; stroke: #e74c3c; stroke-width: 2; stroke-dasharray: 5 3; }
+    .spof-label { font-size: 10px; fill: #e74c3c; font-weight: 600; }
+    .fix-ring { fill: none; stroke: #27ae60; stroke-width: 2; stroke-dasharray: 5 3; }
+    .fix-label { font-size: 10px; fill: #27ae60; font-weight: 600; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#666" stroke-width="1.2" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#999" stroke-width="1" stroke-linejoin="round"/>
+    </marker>
+    <!-- UML Component icon -->
+    <symbol id="comp-icon" viewBox="0 0 20 16">
+      <rect x="4" y="0" width="16" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+      <rect x="0" y="3" width="8" height="4" rx="1" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+      <rect x="0" y="9" width="8" height="4" rx="1" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="920" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" class="title">Diagrama de Componentes UML — iFood (Fluxo de Pedido)</text>
+  <text x="600" y="52" text-anchor="middle" class="subtitle">Arquitetura de Software — Oxygeni Hub</text>
+
+  <!-- ===== ZONE: Clients (top) ===== -->
+  <rect x="30" y="70" width="1140" height="110" rx="10" fill="#f0f4ff" stroke="#c5d4f0" stroke-width="1"/>
+  <text x="50" y="90" class="zone-label">Camada de Apresentação (Clientes)</text>
+
+  <!-- App Cliente -->
+  <rect x="100" y="100" width="180" height="60" rx="8" fill="#3498db"/>
+  <use href="#comp-icon" x="108" y="106" width="16" height="13"/>
+  <text x="190" y="126" class="comp-name">App Cliente</text>
+  <text x="190" y="142" class="comp-role">App mobile do consumidor</text>
+
+  <!-- App Restaurante -->
+  <rect x="510" y="100" width="180" height="60" rx="8" fill="#3498db"/>
+  <use href="#comp-icon" x="518" y="106" width="16" height="13"/>
+  <text x="600" y="126" class="comp-name">App Restaurante</text>
+  <text x="600" y="142" class="comp-role">Painel do estabelecimento</text>
+
+  <!-- App Entregador -->
+  <rect x="920" y="100" width="180" height="60" rx="8" fill="#3498db"/>
+  <use href="#comp-icon" x="928" y="106" width="16" height="13"/>
+  <text x="1010" y="126" class="comp-name">App Entregador</text>
+  <text x="1010" y="142" class="comp-role">App mobile do motoboy</text>
+
+  <!-- ===== ZONE: Infrastructure (middle) ===== -->
+  <rect x="30" y="200" width="1140" height="130" rx="10" fill="#fff8f0" stroke="#f0dcc5" stroke-width="1"/>
+  <text x="50" y="220" class="zone-label">Camada de Infraestrutura</text>
+
+  <!-- Load Balancer -->
+  <rect x="340" y="235" width="180" height="60" rx="8" fill="#e67e22"/>
+  <use href="#comp-icon" x="348" y="241" width="16" height="13"/>
+  <text x="430" y="261" class="comp-name">Load Balancer</text>
+  <text x="430" y="277" class="comp-role">Distribui requisições</text>
+
+  <!-- API Gateway -->
+  <rect x="680" y="235" width="180" height="60" rx="8" fill="#e67e22"/>
+  <use href="#comp-icon" x="688" y="241" width="16" height="13"/>
+  <text x="770" y="261" class="comp-name">API Gateway</text>
+  <text x="770" y="277" class="comp-role">Roteamento e autenticação</text>
+
+  <!-- ===== ZONE: Services (bottom-middle) ===== -->
+  <rect x="30" y="350" width="1140" height="260" rx="10" fill="#f0fff4" stroke="#c5f0d4" stroke-width="1"/>
+  <text x="50" y="370" class="zone-label">Camada de Serviços (Microsserviços)</text>
+
+  <!-- Serviço de Autenticação -->
+  <rect x="50" y="390" width="180" height="60" rx="8" fill="#2ecc71"/>
+  <use href="#comp-icon" x="58" y="396" width="16" height="13"/>
+  <text x="140" y="416" class="comp-name">Autenticação</text>
+  <text x="140" y="432" class="comp-role">Login, JWT, permissões</text>
+
+  <!-- Serviço de Pedidos -->
+  <rect x="290" y="390" width="180" height="60" rx="8" fill="#2ecc71"/>
+  <use href="#comp-icon" x="298" y="396" width="16" height="13"/>
+  <text x="380" y="416" class="comp-name">Serv. de Pedidos</text>
+  <text x="380" y="432" class="comp-role">Cria, atualiza, cancela</text>
+
+  <!-- Serviço de Pagamentos -->
+  <rect x="530" y="390" width="180" height="60" rx="8" fill="#2ecc71"/>
+  <use href="#comp-icon" x="538" y="396" width="16" height="13"/>
+  <text x="620" y="416" class="comp-name">Serv. de Pagamentos</text>
+  <text x="620" y="432" class="comp-role">Valida cartão, Pix, boleto</text>
+
+  <!-- Serviço de Notificações -->
+  <rect x="770" y="390" width="180" height="60" rx="8" fill="#2ecc71"/>
+  <use href="#comp-icon" x="778" y="396" width="16" height="13"/>
+  <text x="860" y="416" class="comp-name">Serv. de Notificações</text>
+  <text x="860" y="432" class="comp-role">Push, SMS, e-mail</text>
+
+  <!-- Serviço de Rastreamento -->
+  <rect x="530" y="510" width="180" height="60" rx="8" fill="#2ecc71"/>
+  <use href="#comp-icon" x="538" y="516" width="16" height="13"/>
+  <text x="620" y="536" class="comp-name">Serv. de Rastreamento</text>
+  <text x="620" y="552" class="comp-role">GPS do entregador em tempo real</text>
+
+  <!-- Cache (Redis) -->
+  <rect x="290" y="510" width="180" height="60" rx="8" fill="#9b59b6"/>
+  <use href="#comp-icon" x="298" y="516" width="16" height="13"/>
+  <text x="380" y="536" class="comp-name">Cache (Redis)</text>
+  <text x="380" y="552" class="comp-role">Cardápio, sessões, status</text>
+
+  <!-- Fila de Mensagens -->
+  <rect x="770" y="510" width="180" height="60" rx="8" fill="#9b59b6"/>
+  <use href="#comp-icon" x="778" y="516" width="16" height="13"/>
+  <text x="860" y="536" class="comp-name">Fila de Mensagens</text>
+  <text x="860" y="552" class="comp-role">RabbitMQ / Kafka</text>
+
+  <!-- ===== ZONE: Data (bottom) ===== -->
+  <rect x="30" y="630" width="1140" height="120" rx="10" fill="#fff0f0" stroke="#f0c5c5" stroke-width="1"/>
+  <text x="50" y="650" class="zone-label">Camada de Dados</text>
+
+  <!-- Banco Principal -->
+  <rect x="290" y="665" width="180" height="60" rx="8" fill="#e74c3c"/>
+  <use href="#comp-icon" x="298" y="671" width="16" height="13"/>
+  <text x="380" y="691" class="comp-name">Banco de Dados</text>
+  <text x="380" y="707" class="comp-role">PostgreSQL (pedidos, users)</text>
+
+  <!-- Banco Réplica -->
+  <rect x="530" y="665" width="180" height="60" rx="8" fill="#c0392b"/>
+  <use href="#comp-icon" x="538" y="671" width="16" height="13"/>
+  <text x="620" y="691" class="comp-name">Réplica (Read)</text>
+  <text x="620" y="707" class="comp-role">Leitura e relatórios</text>
+
+  <!-- Storage -->
+  <rect x="770" y="665" width="180" height="60" rx="8" fill="#e74c3c"/>
+  <use href="#comp-icon" x="778" y="671" width="16" height="13"/>
+  <text x="860" y="691" class="comp-name">Object Storage</text>
+  <text x="860" y="707" class="comp-role">Imagens de cardápio / perfis</text>
+
+  <!-- ===== ARROWS ===== -->
+
+  <!-- Clients → Load Balancer -->
+  <line x1="190" y1="160" x2="390" y2="235" class="arrow"/>
+  <line x1="600" y1="160" x2="450" y2="235" class="arrow"/>
+  <line x1="1010" y1="160" x2="480" y2="235" class="arrow"/>
+
+  <!-- Labels on client arrows -->
+  <rect x="230" y="185" width="70" height="14" rx="3" class="label-bg"/>
+  <text x="265" y="195" class="label">HTTPS</text>
+  <rect x="475" y="185" width="70" height="14" rx="3" class="label-bg"/>
+  <text x="510" y="195" class="label">HTTPS</text>
+  <rect x="700" y="185" width="70" height="14" rx="3" class="label-bg"/>
+  <text x="735" y="195" class="label">HTTPS</text>
+
+  <!-- Load Balancer → API Gateway -->
+  <line x1="520" y1="265" x2="680" y2="265" class="arrow"/>
+  <rect x="565" y="250" width="70" height="14" rx="3" class="label-bg"/>
+  <text x="600" y="260" class="label">Round Robin</text>
+
+  <!-- API Gateway → Services -->
+  <line x1="720" y1="295" x2="140" y2="390" class="arrow"/>
+  <line x1="740" y1="295" x2="380" y2="390" class="arrow"/>
+  <line x1="770" y1="295" x2="620" y2="390" class="arrow"/>
+  <line x1="800" y1="295" x2="860" y2="390" class="arrow"/>
+
+  <!-- Labels on gateway→service arrows -->
+  <rect x="375" y="333" width="65" height="14" rx="3" class="label-bg"/>
+  <text x="408" y="343" class="label">REST API</text>
+  <rect x="660" y="333" width="65" height="14" rx="3" class="label-bg"/>
+  <text x="693" y="343" class="label">REST API</text>
+
+  <!-- Pedidos → Cache -->
+  <line x1="380" y1="450" x2="380" y2="510" class="arrow"/>
+  <rect x="384" y="472" width="55" height="14" rx="3" class="label-bg"/>
+  <text x="412" y="482" class="label">consulta</text>
+
+  <!-- Pedidos → Rastreamento -->
+  <line x1="470" y1="440" x2="530" y2="530" class="arrow-dashed"/>
+
+  <!-- Pedidos → Fila -->
+  <line x1="470" y1="420" x2="770" y2="530" class="arrow-dashed"/>
+  <rect x="590" y="460" width="55" height="14" rx="3" class="label-bg"/>
+  <text x="618" y="470" class="label">evento</text>
+
+  <!-- Notificações ← Fila -->
+  <line x1="860" y1="510" x2="860" y2="450" class="arrow"/>
+  <rect x="864" y="472" width="55" height="14" rx="3" class="label-bg"/>
+  <text x="892" y="482" class="label">consome</text>
+
+  <!-- Rastreamento → Fila -->
+  <line x1="710" y1="540" x2="770" y2="540" class="arrow-dashed"/>
+
+  <!-- Services → Database -->
+  <line x1="380" y1="450" x2="380" y2="665" class="arrow-dashed"/>
+  <line x1="620" y1="450" x2="400" y2="665" class="arrow-dashed"/>
+  <rect x="340" y="595" width="80" height="14" rx="3" class="label-bg"/>
+  <text x="380" y="605" class="label">read/write</text>
+
+  <!-- Cache → Database -->
+  <line x1="380" y1="570" x2="380" y2="665" class="arrow-dashed"/>
+
+  <!-- Database → Réplica -->
+  <line x1="470" y1="695" x2="530" y2="695" class="arrow-dashed"/>
+  <rect x="475" y="680" width="70" height="14" rx="3" class="label-bg"/>
+  <text x="510" y="690" class="label">replicação</text>
+
+  <!-- Notificações → Storage (imagens) -->
+  <line x1="860" y1="450" x2="860" y2="665" class="arrow-dashed"/>
+
+  <!-- ===== SPOF Highlight ===== -->
+  <rect x="327" y="225" width="200" height="80" rx="14" class="spof-ring"/>
+  <text x="527" y="222" class="spof-label">SPOF</text>
+
+  <!-- Fix highlight: Réplica -->
+  <rect x="520" y="655" width="200" height="80" rx="14" class="fix-ring"/>
+  <text x="720" y="652" class="fix-label">Solução: réplica</text>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="30" y="770" width="1140" height="140" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="50" y="795" class="zone-label">Legenda</text>
+
+  <rect x="50" y="810" width="24" height="16" rx="4" fill="#3498db"/>
+  <text x="82" y="822" style="font-size:11px;fill:#333">Cliente (apresentação)</text>
+
+  <rect x="250" y="810" width="24" height="16" rx="4" fill="#e67e22"/>
+  <text x="282" y="822" style="font-size:11px;fill:#333">Infraestrutura</text>
+
+  <rect x="430" y="810" width="24" height="16" rx="4" fill="#2ecc71"/>
+  <text x="462" y="822" style="font-size:11px;fill:#333">Microsserviço</text>
+
+  <rect x="610" y="810" width="24" height="16" rx="4" fill="#9b59b6"/>
+  <text x="642" y="822" style="font-size:11px;fill:#333">Middleware (cache / fila)</text>
+
+  <rect x="850" y="810" width="24" height="16" rx="4" fill="#e74c3c"/>
+  <text x="882" y="822" style="font-size:11px;fill:#333">Banco de dados / storage</text>
+
+  <!-- Arrow legend -->
+  <line x1="50" y1="855" x2="100" y2="855" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="110" y="859" style="font-size:11px;fill:#333">Comunicação síncrona (REST/HTTPS)</text>
+
+  <line x1="430" y1="855" x2="480" y2="855" stroke="#999" stroke-width="1.2" stroke-dasharray="6 3" marker-end="url(#arrowhead-light)"/>
+  <text x="490" y="859" style="font-size:11px;fill:#333">Comunicação assíncrona (eventos / replicação)</text>
+
+  <!-- SPOF/Fix legend -->
+  <rect x="50" y="875" width="40" height="16" rx="6" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="98" y="887" style="font-size:11px;fill:#333">Ponto único de falha (SPOF)</text>
+
+  <rect x="430" y="875" width="40" height="16" rx="6" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="478" y="887" style="font-size:11px;fill:#333">Solução proposta</text>
+
+  <!-- UML Component icon in legend -->
+  <use href="#comp-icon" x="850" y="848" width="16" height="13"/>
+  <text x="875" y="859" style="font-size:11px;fill:#333">Ícone de componente UML</text>
+</svg>
